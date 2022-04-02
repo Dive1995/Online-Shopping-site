@@ -1,15 +1,19 @@
 ﻿<Properties StartupConfiguration="{661A1C12-8400-47D8-AB6D-B4A25278A6D3}|Default">
-  <MonoDevelop.Ide.ItemProperties.ShoppingWebAPI FirstBuild="True" PreferredExecutionTarget="/Applications/Safari.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ShoppingWebAPI/Startup.cs">
+  <MonoDevelop.Ide.ItemProperties.ShoppingWebAPI PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ShoppingWebAPI/Entities/Customer.cs">
     <Files>
       <File FileName="ShoppingWebAPI/Startup.cs" Line="20" Column="10" />
+      <File FileName="ShoppingWebAPI/Entities/Customer.cs" Line="10" Column="42" />
+      <File FileName="ShoppingWebAPI/Entities/Product.cs" Line="10" Column="28" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ShoppingWebAPI" expanded="True">
             <Node name="ShoppingWebAPI" expanded="True">
-              <Node name="Properties" selected="True" />
+              <Node name="Entities" expanded="True">
+                <Node name="Customer.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>

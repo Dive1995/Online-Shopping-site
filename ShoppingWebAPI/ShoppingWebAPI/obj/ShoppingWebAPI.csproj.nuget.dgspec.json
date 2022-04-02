@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/dive95/Projects/ShoppingWebAPI/ShoppingWebAPI/ShoppingWebAPI.csproj": {}
+    "/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/ShoppingWebAPI.csproj": {}
   },
   "projects": {
-    "/Users/dive95/Projects/ShoppingWebAPI/ShoppingWebAPI/ShoppingWebAPI.csproj": {
+    "/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/ShoppingWebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/dive95/Projects/ShoppingWebAPI/ShoppingWebAPI/ShoppingWebAPI.csproj",
+        "projectUniqueName": "/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/ShoppingWebAPI.csproj",
         "projectName": "ShoppingWebAPI",
-        "projectPath": "/Users/dive95/Projects/ShoppingWebAPI/ShoppingWebAPI/ShoppingWebAPI.csproj",
+        "projectPath": "/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/ShoppingWebAPI.csproj",
         "packagesPath": "/Users/dive95/.nuget/packages/",
-        "outputPath": "/Users/dive95/Projects/ShoppingWebAPI/ShoppingWebAPI/obj/",
+        "outputPath": "/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/dive95/.config/NuGet/NuGet.Config"

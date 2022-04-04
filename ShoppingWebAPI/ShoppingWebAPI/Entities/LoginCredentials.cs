@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShoppingWebAPI.Entities
@@ -12,6 +13,7 @@ namespace ShoppingWebAPI.Entities
         // Navigation Properties
         [ForeignKey("CustomerId")]
         public Customer Customer { get; set; }
+        [Key]
         public int CustomerId { get; set; }
     }
 }

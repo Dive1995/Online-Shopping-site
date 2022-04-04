@@ -24,6 +24,6 @@ namespace ShoppingWebAPI.Entities
         public Order Order { get; set; }
         public int OrderId { get; set; }
 
-        public Shipping Shipping { get; set; }
+        
     }
 }

@@ -25,6 +25,7 @@ namespace ShoppingWebAPI.Entities
 
         // for Shipping
         public Shipping Shipping { get; set; }
+        public int ShippingId { get; set; }
 
     }
 }

@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ShoppingWebAPI.Contexts;
+using ShoppingWebAPI.Models;
 
 namespace ShoppingWebAPI
 {
@@ -28,6 +29,13 @@ namespace ShoppingWebAPI
         {
             var connectionString = _configuration.GetConnectionString("ShoppingConnectionString");
             services.AddControllers();
+
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IOrderItemsRepository, OrderItemRepository>();
+            services.AddScoped<IShippingRepository, ShippingRepository>();
 
             services.AddDbContextPool<ShoppingContext>(opt => opt.UseSqlServer(connectionString));
         }

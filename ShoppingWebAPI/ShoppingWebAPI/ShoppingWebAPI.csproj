@@ -4,6 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <ExternalConsole>true</ExternalConsole>
+  </PropertyGroup>
   <ItemGroup>
     <None Remove="Entities\" />
     <None Remove="Microsoft.EntityFrameworkCore" />
@@ -13,12 +16,18 @@
     <None Remove="Models\" />
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
     <None Remove="Controllers\" />
+    <None Remove="Models\IRepositories\" />
+    <None Remove="Models\Repositories\" />
+    <None Remove="Models\Dtos\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entities\" />
     <Folder Include="Contexts\" />
     <Folder Include="Models\" />
     <Folder Include="Controllers\" />
+    <Folder Include="Models\IRepositories\" />
+    <Folder Include="Models\Repositories\" />
+    <Folder Include="Models\Dtos\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.10" />

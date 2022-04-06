@@ -1,23 +1,27 @@
 ﻿<Properties StartupConfiguration="{661A1C12-8400-47D8-AB6D-B4A25278A6D3}|Default">
   <MonoDevelop.Ide.ItemProperties.ShoppingWebAPI PreferredExecutionTarget="/Applications/Safari.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ShoppingWebAPI/Entities/Product.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ShoppingWebAPI/Controllers/ProductController.cs">
     <Files>
-      <File FileName="ShoppingWebAPI/Entities/Customer.cs" Line="27" Column="1" />
-      <File FileName="ShoppingWebAPI/Entities/Order.cs" />
-      <File FileName="ShoppingWebAPI/Entities/OrderItems.cs" />
-      <File FileName="ShoppingWebAPI/Entities/Product.cs" Line="28" Column="1" />
+      <File FileName="ShoppingWebAPI/Models/ProductRepository.cs" Line="37" Column="1" />
+      <File FileName="ShoppingWebAPI/Controllers/ProductController.cs" Line="18" Column="17" />
+      <File FileName="ShoppingWebAPI/Models/IProductRepository.cs" />
+      <File FileName="ShoppingWebAPI/Models/CategoryRepository.cs" />
       <File FileName="ShoppingWebAPI/Entities/Category.cs" />
-      <File FileName="ShoppingWebAPI/Entities/Shipping.cs" />
-      <File FileName="ShoppingWebAPI/Entities/LoginCredentials.cs" />
+      <File FileName="ShoppingWebAPI/Contexts/ShoppingContext.cs" />
+      <File FileName="ShoppingWebAPI/Entities/Product.cs" />
+      <File FileName="ShoppingWebAPI/Entities/Order.cs" />
+      <File FileName="ShoppingWebAPI/Startup.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ShoppingWebAPI" expanded="True">
-            <Node name="ShoppingWebAPI" expanded="True">
-              <Node name="Entities" expanded="True">
-                <Node name="Product.cs" selected="True" />
-              </Node>
+            <Node name="ShoppingWebAPI" expanded="True" selected="True">
+              <Node name="Contexts" expanded="True" />
+              <Node name="Controllers" expanded="True" />
+              <Node name="Entities" expanded="True" />
+              <Node name="Migrations" expanded="True" />
+              <Node name="Models" expanded="True" />
             </Node>
           </Node>
         </State>

@@ -13,6 +13,7 @@ namespace ShoppingWebAPI.Entities
         [Required]
         [MaxLength(30)]
         public string Name { get; set; }
+        public string Section { get; set; }
 
         public ICollection<Product> Product { get; set; }
 

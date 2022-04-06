@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShoppingWebAPI.Contexts;
 
 namespace ShoppingWebAPI.Migrations
 {
     [DbContext(typeof(ShoppingContext))]
-    partial class ShoppingContextModelSnapshot : ModelSnapshot
+    [Migration("20220405110508_seedData2")]
+    partial class seedData2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,9 +33,6 @@ namespace ShoppingWebAPI.Migrations
                         .HasColumnType("nvarchar(30)")
                         .HasMaxLength(30);
 
-                    b.Property<string>("Section")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
@@ -42,14 +41,12 @@ namespace ShoppingWebAPI.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "Jeans",
-                            Section = "Men"
+                            Name = "Jeans"
                         },
                         new
                         {
                             Id = 2,
-                            Name = "Shirt",
-                            Section = "Men"
+                            Name = "Shirt"
                         });
                 });
 

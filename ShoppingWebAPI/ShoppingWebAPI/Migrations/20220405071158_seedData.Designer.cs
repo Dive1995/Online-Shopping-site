@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShoppingWebAPI.Contexts;
 
 namespace ShoppingWebAPI.Migrations
 {
     [DbContext(typeof(ShoppingContext))]
-    partial class ShoppingContextModelSnapshot : ModelSnapshot
+    [Migration("20220405071158_seedData")]
+    partial class seedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,9 +33,6 @@ namespace ShoppingWebAPI.Migrations
                         .HasColumnType("nvarchar(30)")
                         .HasMaxLength(30);
 
-                    b.Property<string>("Section")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
@@ -42,14 +41,12 @@ namespace ShoppingWebAPI.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "Jeans",
-                            Section = "Men"
+                            Name = "Jeans"
                         },
                         new
                         {
                             Id = 2,
-                            Name = "Shirt",
-                            Section = "Men"
+                            Name = "Shirt"
                         });
                 });
 
@@ -94,7 +91,6 @@ namespace ShoppingWebAPI.Migrations
                         {
                             Id = 1,
                             Address = "Colombo",
-                            Email = "willsmith@gmail.com",
                             FirstName = "Will",
                             LastName = "Smith",
                             Password = "password",
@@ -104,13 +100,12 @@ namespace ShoppingWebAPI.Migrations
                         new
                         {
                             Id = 2,
-                            Address = "Galle",
-                            Email = "elonmsuk@gmail.com",
+                            Address = "Colombo",
                             FirstName = "Elon",
                             LastName = "Musk",
                             Password = "password",
-                            PhoneNum = 777461334,
-                            PostalCode = 300
+                            PhoneNum = 771231234,
+                            PostalCode = 100
                         });
                 });
 

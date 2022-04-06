@@ -18,6 +18,7 @@ namespace ShoppingWebAPI.Models
         public void AddProduct(Product product)
         {
             _context.Products.Add(product);
+            _context.SaveChanges();
         }
 
         public ICollection<Product> GetCategoryOfProducts(int categoryId)
@@ -33,5 +34,6 @@ namespace ShoppingWebAPI.Models
             var product = _context.Products.FirstOrDefault(prod => prod.Id == id);
             return product;
         }
+
     }
 }

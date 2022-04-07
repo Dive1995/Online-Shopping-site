@@ -1,27 +1,33 @@
 ﻿<Properties StartupConfiguration="{661A1C12-8400-47D8-AB6D-B4A25278A6D3}|Default">
-  <MonoDevelop.Ide.ItemProperties.ShoppingWebAPI PreferredExecutionTarget="/Applications/Safari.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ShoppingWebAPI/Controllers/ProductController.cs">
+  <MonoDevelop.Ide.ItemProperties.ShoppingWebAPI PreferredExecutionTarget="/Applications/Brave Browser.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ShoppingWebAPI/Controllers/OrderController.cs">
     <Files>
-      <File FileName="ShoppingWebAPI/Models/ProductRepository.cs" Line="37" Column="1" />
-      <File FileName="ShoppingWebAPI/Controllers/ProductController.cs" Line="18" Column="17" />
-      <File FileName="ShoppingWebAPI/Models/IProductRepository.cs" />
-      <File FileName="ShoppingWebAPI/Models/CategoryRepository.cs" />
-      <File FileName="ShoppingWebAPI/Entities/Category.cs" />
-      <File FileName="ShoppingWebAPI/Contexts/ShoppingContext.cs" />
-      <File FileName="ShoppingWebAPI/Entities/Product.cs" />
-      <File FileName="ShoppingWebAPI/Entities/Order.cs" />
-      <File FileName="ShoppingWebAPI/Startup.cs" />
+      <File FileName="ShoppingWebAPI/Controllers/ProductController.cs" Line="20" Column="18" />
+      <File FileName="BusinessLogicLayer/ProductBLL.cs" Line="21" Column="75" />
+      <File FileName="ShoppingWebAPI/Controllers/OrderController.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ShoppingWebAPI" expanded="True">
-            <Node name="ShoppingWebAPI" expanded="True" selected="True">
-              <Node name="Contexts" expanded="True" />
-              <Node name="Controllers" expanded="True" />
-              <Node name="Entities" expanded="True" />
-              <Node name="Migrations" expanded="True" />
+            <Node name="BusinessLogicLayer" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
               <Node name="Models" expanded="True" />
+            </Node>
+            <Node name="DataAccessLayer" expanded="True">
+              <Node name="Entities" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="IRepositories" expanded="True" />
+                <Node name="Repositories" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="ShoppingWebAPI" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="OrderController.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>

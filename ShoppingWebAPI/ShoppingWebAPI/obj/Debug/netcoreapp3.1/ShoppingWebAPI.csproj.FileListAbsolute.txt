@@ -58,4 +58,8 @@
 /Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp2.0/System.Runtime.Caching.dll
 /Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
 /Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/obj/Debug/netcoreapp3.1/ShoppingWebAPI.csproj.CopyComplete
-/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.Design.dll
+/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/bin/Debug/netcoreapp3.1/BusinessLogicLayer.dll
+/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/bin/Debug/netcoreapp3.1/DataAccessLayer.dll
+/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/bin/Debug/netcoreapp3.1/BusinessLogicLayer.pdb
+/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/bin/Debug/netcoreapp3.1/DataAccessLayer.pdb
+/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/bin/Debug/netcoreapp3.1/AutoMapper.dll

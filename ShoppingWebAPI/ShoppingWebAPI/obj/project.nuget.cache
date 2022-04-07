@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "iEVqESZNRdJL6II/OxtEXLfeCHFW7xp9TnVdHMGWU2etcy9MTTler3KCWCoCtOxID94ZHors4R2cnyDPvlO+Yg==",
+  "dgSpecHash": "BSPPebRWSwN2fyTRIjlaLEbpDFWOlolMxLxvoXRSXUFH8hCq23ZYOx0+zGvMmWspazr4a46iEmuR8qAy8sG3VQ==",
   "success": true,
   "projectFilePath": "/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/ShoppingWebAPI.csproj",
   "expectedPackageFiles": [
+    "/Users/dive95/.nuget/packages/automapper/11.0.1/automapper.11.0.1.nupkg.sha512",
     "/Users/dive95/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "/Users/dive95/.nuget/packages/microsoft.bcl.hashcode/1.1.0/microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "/Users/dive95/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
@@ -11,10 +12,8 @@
     "/Users/dive95/.nuget/packages/microsoft.entityframeworkcore/3.1.10/microsoft.entityframeworkcore.3.1.10.nupkg.sha512",
     "/Users/dive95/.nuget/packages/microsoft.entityframeworkcore.abstractions/3.1.10/microsoft.entityframeworkcore.abstractions.3.1.10.nupkg.sha512",
     "/Users/dive95/.nuget/packages/microsoft.entityframeworkcore.analyzers/3.1.10/microsoft.entityframeworkcore.analyzers.3.1.10.nupkg.sha512",
-    "/Users/dive95/.nuget/packages/microsoft.entityframeworkcore.design/3.1.10/microsoft.entityframeworkcore.design.3.1.10.nupkg.sha512",
     "/Users/dive95/.nuget/packages/microsoft.entityframeworkcore.relational/3.1.10/microsoft.entityframeworkcore.relational.3.1.10.nupkg.sha512",
     "/Users/dive95/.nuget/packages/microsoft.entityframeworkcore.sqlserver/3.1.10/microsoft.entityframeworkcore.sqlserver.3.1.10.nupkg.sha512",
-    "/Users/dive95/.nuget/packages/microsoft.entityframeworkcore.tools/3.1.10/microsoft.entityframeworkcore.tools.3.1.10.nupkg.sha512",
     "/Users/dive95/.nuget/packages/microsoft.extensions.caching.abstractions/3.1.10/microsoft.extensions.caching.abstractions.3.1.10.nupkg.sha512",
     "/Users/dive95/.nuget/packages/microsoft.extensions.caching.memory/3.1.10/microsoft.extensions.caching.memory.3.1.10.nupkg.sha512",
     "/Users/dive95/.nuget/packages/microsoft.extensions.configuration/3.1.10/microsoft.extensions.configuration.3.1.10.nupkg.sha512",

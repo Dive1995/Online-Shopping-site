@@ -4,14 +4,76 @@
     "/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/ShoppingWebAPI.csproj": {}
   },
   "projects": {
-    "/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/ShoppingWebAPI.csproj": {
+    "/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/BusinessLogicLayer/BusinessLogicLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/ShoppingWebAPI.csproj",
-        "projectName": "ShoppingWebAPI",
-        "projectPath": "/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/ShoppingWebAPI.csproj",
+        "projectUniqueName": "/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/BusinessLogicLayer/BusinessLogicLayer.csproj",
+        "projectName": "BusinessLogicLayer",
+        "projectPath": "/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/BusinessLogicLayer/BusinessLogicLayer.csproj",
         "packagesPath": "/Users/dive95/.nuget/packages/",
-        "outputPath": "/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/obj/",
+        "outputPath": "/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/BusinessLogicLayer/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/dive95/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/DataAccessLayer/DataAccessLayer.csproj": {
+                "projectPath": "/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/DataAccessLayer/DataAccessLayer.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.406/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/DataAccessLayer/DataAccessLayer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/DataAccessLayer/DataAccessLayer.csproj",
+        "projectName": "DataAccessLayer",
+        "projectPath": "/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/DataAccessLayer/DataAccessLayer.csproj",
+        "packagesPath": "/Users/dive95/.nuget/packages/",
+        "outputPath": "/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/DataAccessLayer/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/dive95/.config/NuGet/NuGet.Config"
@@ -42,10 +104,6 @@
               "target": "Package",
               "version": "[3.1.10, )"
             },
-            "Microsoft.EntityFrameworkCore.Relational": {
-              "target": "Package",
-              "version": "[3.1.10, )"
-            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.10, )"
@@ -57,6 +115,62 @@
               "version": "[3.1.10, )"
             }
           },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.406/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/ShoppingWebAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/ShoppingWebAPI.csproj",
+        "projectName": "ShoppingWebAPI",
+        "projectPath": "/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/ShoppingWebAPI.csproj",
+        "packagesPath": "/Users/dive95/.nuget/packages/",
+        "outputPath": "/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/dive95/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/BusinessLogicLayer/BusinessLogicLayer.csproj": {
+                "projectPath": "/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/BusinessLogicLayer/BusinessLogicLayer.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",

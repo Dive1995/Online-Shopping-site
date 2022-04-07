@@ -9,8 +9,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using ShoppingWebAPI.Contexts;
-using ShoppingWebAPI.Models;
+using DataAccessLayer.Contexts;
+using DataAccessLayer.Models;
+using BusinessLogicLayer;
 
 namespace ShoppingWebAPI
 {
@@ -32,6 +33,9 @@ namespace ShoppingWebAPI
 
             var connectionString = _configuration.GetConnectionString("ShoppingConnectionString");
             services.AddDbContextPool<ShoppingContext>(opt => opt.UseSqlServer(connectionString));
+
+            services.AddScoped<ProductBLL>();
+            //services.AddAutoMapper(typeof(Startup));
 
             services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();

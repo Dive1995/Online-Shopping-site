@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
-using ShoppingWebAPI.Models;
+using BusinessLogicLayer;
+using DataAccessLayer.Entities;
+using BusinessLogicLayer.Models;
 
 namespace ShoppingWebAPI.Controllers
 {
@@ -8,15 +10,15 @@ namespace ShoppingWebAPI.Controllers
     [Route("api/products")]
     public class ProductController : ControllerBase
     {
-        private readonly IProductRepository _productRepository;
+        private readonly ProductBLL _productBLL;
 
-        public ProductController(IProductRepository productRepository)
+        public ProductController(ProductBLL productBLL)
         {
-            _productRepository = productRepository;
+            _productBLL = productBLL;
         }
 
         [HttpGet]
-        public IActionResult Test()
+        public IActionResult Products()
         {
             return Ok("Products Page");
         }
@@ -24,11 +26,11 @@ namespace ShoppingWebAPI.Controllers
         [HttpGet("category/{id}")]
         public IActionResult GetAllProducts(int id)
         {
-            var products = _productRepository.GetCategoryOfProducts(id);
+            var products = _productBLL.GetAllProducts(id);
 
-            if(products == null)
+            if(products.Count <= 0)
             {
-                return NotFound();
+                return NotFound("There are no categories of products available for your search.");
             }
 
             return Ok(products);
@@ -37,19 +39,24 @@ namespace ShoppingWebAPI.Controllers
         [HttpGet("{id}")]
         public IActionResult GetSingleProduct(int id)
         {
-            var product = _productRepository.GetSingleProduct(id);
-            if(product == null)
+            var product = _productBLL.GetProduct(id);
+            if (product == null)
             {
-                return BadRequest();
+                return NotFound("The product you are searching for is not available.");
             }
 
             return Ok(product);
         }
 
-        //[HttpPost]
-        //public IActionResult AddProduct()
-        //{
-
-        //}
+        [HttpPost]
+        public IActionResult AddProduct([FromBody] ProductCreationDto product)
+        {
+            var result = _productBLL.AddProduct(product);
+            if(result <= 0)
+            {
+                return StatusCode(500);
+            }
+            return StatusCode(201, "Product added successfully!!");
+        }
     }
 }

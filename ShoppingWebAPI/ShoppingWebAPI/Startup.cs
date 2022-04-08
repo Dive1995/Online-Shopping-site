@@ -35,6 +35,7 @@ namespace ShoppingWebAPI
             services.AddDbContextPool<ShoppingContext>(opt => opt.UseSqlServer(connectionString));
 
             services.AddScoped<ProductBLL>();
+            services.AddScoped<OrderBLL>();
             //services.AddAutoMapper(typeof(Startup));
 
             services.AddScoped<ICustomerRepository, CustomerRepository>();

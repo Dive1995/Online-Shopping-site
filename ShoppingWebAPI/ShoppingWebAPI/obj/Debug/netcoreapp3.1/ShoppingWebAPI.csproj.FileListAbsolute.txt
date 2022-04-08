@@ -63,3 +63,4 @@
 /Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/bin/Debug/netcoreapp3.1/BusinessLogicLayer.pdb
 /Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/bin/Debug/netcoreapp3.1/DataAccessLayer.pdb
 /Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/bin/Debug/netcoreapp3.1/AutoMapper.dll
+/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.Design.dll

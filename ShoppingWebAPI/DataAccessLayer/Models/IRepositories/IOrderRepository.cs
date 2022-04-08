@@ -6,7 +6,7 @@ namespace DataAccessLayer.Models
 {
     public interface IOrderRepository
     {
-        void AddOrder(Order order);
+        int AddOrder(Order order);
         Order GetSingleOrder(int orderId);
         ICollection<Order> GetAllOrders(int cutomerId);
     }

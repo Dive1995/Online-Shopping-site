@@ -24,23 +24,15 @@ namespace DataAccessLayer.Contexts
                 new Customer()
                 {
                     Id = 1,
-                    FirstName = "Will",
-                    LastName = "Smith",
+                    Username = "Will",
                     Email = "willsmith@gmail.com",
-                    Password = "password",
-                    PhoneNum = 0771231234,
-                    Address = "Colombo",
-                    PostalCode = 100
+                    Password = "password"
                 },new Customer()
                 {
                     Id = 2,
-                    FirstName = "Elon",
-                    LastName = "Musk",
+                    Username = "Elon",
                     Email = "elonmsuk@gmail.com",
                     Password = "password",
-                    PhoneNum = 0777461334,
-                    Address = "Galle",
-                    PostalCode = 300
                 }
                 );
 
@@ -107,7 +99,12 @@ namespace DataAccessLayer.Contexts
                     OrderId = 1,
                     ShippingDate = new DateTime(),
                     DeliveryDate = new DateTime(),
-                    Status = "Delivered"
+                    Status = "Delivered",
+                    FirstName = "Elon",
+                    LastName = "Musk",
+                    Address = "Colombo",
+                    PostalCode = 33,
+                    PhoneNum = 0212223333,
                 },
                 new Shipping()
                 {
@@ -115,7 +112,12 @@ namespace DataAccessLayer.Contexts
                     OrderId = 2,
                     ShippingDate = new DateTime(),
                     DeliveryDate = new DateTime(),
-                    Status = "Preparing"
+                    Status = "Preparing",
+                    FirstName = "Will",
+                    LastName = "Smith",
+                    Address = "Galle",
+                    PostalCode = 233,
+                    PhoneNum = 0212224444,
                 }
                 
                 );

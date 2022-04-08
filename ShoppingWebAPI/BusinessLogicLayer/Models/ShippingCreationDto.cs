@@ -1,31 +1,24 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DataAccessLayer.Entities
+namespace BusinessLogicLayer.Models
 {
-    public class Shipping
+    public class ShippingCreationDto
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        [Required]
         [MaxLength(15)]
         public string FirstName { get; set; }
+        [Required]
         [MaxLength(15)]
         public string LastName { get; set; }
+        [Required]
         public int PhoneNum { get; set; }
+        [Required]
         [MaxLength(200)]
         public string Address { get; set; }
+        [Required]
         public int PostalCode { get; set; }
         public string Status { get; set; }
-        public DateTime ShippingDate { get; set; }
-        public DateTime DeliveryDate { get; set; }
-
-
-        // Navigation Properties
-
-        [ForeignKey("OrderId")]
-        public Order Order { get; set; }
         public int OrderId { get; set; }
     }
 }

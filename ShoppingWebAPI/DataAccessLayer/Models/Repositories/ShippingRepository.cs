@@ -27,5 +27,10 @@ namespace DataAccessLayer.Models
         {
             return _context.Shippings.FirstOrDefault(shipping => shipping.OrderId == orderId);
         }
+
+        public void UpdateShipping(int shippingId, Shipping shipping)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

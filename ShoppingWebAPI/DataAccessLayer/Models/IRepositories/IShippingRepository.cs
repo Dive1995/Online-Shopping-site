@@ -7,5 +7,6 @@ namespace DataAccessLayer.Models
     {
         void AddShipping(int orderId, Shipping shipping);
         Shipping GetShipping(int orderId);
+        void UpdateShipping(int shippingId, Shipping shipping);
     }
 }

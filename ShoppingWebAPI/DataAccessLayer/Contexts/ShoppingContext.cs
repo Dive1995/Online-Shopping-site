@@ -42,21 +42,18 @@ namespace DataAccessLayer.Contexts
                 {
                     Id = 1,
                     CustomerId = 1,
-                    Total = 500,
                     OrderDate = new DateTime(),
                 },
                 new Order()
                 {
                     Id = 2,
                     CustomerId = 1,
-                    Total = 300,
                     OrderDate = new DateTime(),
                 },
                 new Order()
                 {
                     Id = 3,
                     CustomerId = 2,
-                    Total = 1500,
                     OrderDate = new DateTime(),
                 }
                 ) ;

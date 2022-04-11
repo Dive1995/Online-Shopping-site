@@ -2,14 +2,15 @@
   <MonoDevelop.Ide.ItemProperties.ShoppingWebAPI PreferredExecutionTarget="/Applications/Microsoft Edge.app" />
   <MonoDevelop.Ide.Workbench ActiveDocument="ShoppingWebAPI/Controllers/OrderController.cs">
     <Files>
-      <File FileName="BusinessLogicLayer/ProductBLL.cs" Line="21" Column="75" />
-      <File FileName="ShoppingWebAPI/Controllers/OrderController.cs" Line="40" Column="1" />
-      <File FileName="BusinessLogicLayer/OrderBLL.cs" />
-      <File FileName="DataAccessLayer/Models/Repositories/OrderRepository.cs" />
-      <File FileName="ShoppingWebAPI/Controllers/ProductController.cs" />
-      <File FileName="DataAccessLayer/Models/IRepositories/IOrderRepository.cs" />
-      <File FileName="DataAccessLayer/Entities/OrderItems.cs" />
-      <File FileName="BusinessLogicLayer/Models/OrderCreationDto.cs" />
+      <File FileName="BusinessLogicLayer/OrderBLL.cs" Line="51" Column="1" />
+      <File FileName="DataAccessLayer/Models/Repositories/OrderRepository.cs" Line="1" Column="1" />
+      <File FileName="DataAccessLayer/Entities/Order.cs" />
+      <File FileName="DataAccessLayer/Entities/OrderItems.cs" Line="30" Column="1" />
+      <File FileName="BusinessLogicLayer/Models/ProductInvoiceDto.cs" />
+      <File FileName="BusinessLogicLayer/Models/OrderItemsDto.cs" Line="1" Column="1" />
+      <File FileName="BusinessLogicLayer/Models/OrderDto.cs" Line="5" Column="2" />
+      <File FileName="BusinessLogicLayer/Models/OrderCreationDto.cs" Line="1" Column="1" />
+      <File FileName="ShoppingWebAPI/Controllers/OrderController.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -21,6 +22,9 @@
             <Node name="DataAccessLayer" expanded="True">
               <Node name="Contexts" expanded="True" />
               <Node name="Entities" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="Repositories" expanded="True" />
+              </Node>
             </Node>
             <Node name="ShoppingWebAPI" expanded="True">
               <Node name="Controllers" expanded="True">
@@ -35,9 +39,7 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/BusinessLogicLayer/OrderBLL.cs" relfile="BusinessLogicLayer/OrderBLL.cs" line="26" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

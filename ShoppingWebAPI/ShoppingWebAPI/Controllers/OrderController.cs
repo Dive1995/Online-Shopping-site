@@ -22,6 +22,12 @@ namespace ShoppingWebAPI.Controllers
             return Ok("Orders");
         }
 
+        [HttpGet("{id}")]
+        public IActionResult GetSingleOrder(int id)
+        {
+            return Ok(_orderBLL.GetSingleOrder(id));
+        }
+
         [HttpPost]
         public IActionResult AddNewOrder([FromBody] OrderCreationDto orderCreationDto)
         {

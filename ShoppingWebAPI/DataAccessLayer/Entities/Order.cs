@@ -10,7 +10,6 @@ namespace DataAccessLayer.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id{ get; set; }
-        public float Total { get; set; }
         public DateTime OrderDate { get; set; }
 
         // Navigation Properties
@@ -26,5 +25,6 @@ namespace DataAccessLayer.Entities
         // for Shipping
         public Shipping Shipping { get; set; }
 
+        public Invoice Invoice { get; set; }
     }
 }

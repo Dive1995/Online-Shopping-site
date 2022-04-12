@@ -12,6 +12,10 @@ using Microsoft.Extensions.Hosting;
 using DataAccessLayer.Contexts;
 using DataAccessLayer.Models;
 using BusinessLogicLayer;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using BusinessLogicLayer.Models;
 
 namespace ShoppingWebAPI
 {
@@ -34,8 +38,32 @@ namespace ShoppingWebAPI
             var connectionString = _configuration.GetConnectionString("ShoppingConnectionString");
             services.AddDbContextPool<ShoppingContext>(opt => opt.UseSqlServer(connectionString));
 
+            var appSettingsSection = _configuration.GetSection("AppSettings");
+            services.Configure<AppSettings>(appSettingsSection);
+
+            // JWT
+            var appSettings = appSettingsSection.Get<AppSettings>();
+            var jwtKey = Encoding.ASCII.GetBytes(appSettings.JWTkey);
+            services.AddAuthentication(auth =>
+            {
+                auth.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                auth.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(jwt => {
+                jwt.RequireHttpsMetadata = false;
+                jwt.SaveToken = true;
+                jwt.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(jwtKey),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
+
             services.AddScoped<ProductBLL>();
             services.AddScoped<OrderBLL>();
+            services.AddScoped<CustomerBLL>();
+            services.AddSingleton<AppSettings>();
             //services.AddAutoMapper(typeof(Startup));
 
             services.AddScoped<ICustomerRepository, CustomerRepository>();
@@ -57,6 +85,8 @@ namespace ShoppingWebAPI
 
             app.UseMvc();
             app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using BusinessLogicLayer;
 using DataAccessLayer.Entities;
 using BusinessLogicLayer.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace ShoppingWebAPI.Controllers
 {
@@ -48,6 +50,7 @@ namespace ShoppingWebAPI.Controllers
             return Ok(product);
         }
 
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPost]
         public IActionResult AddProduct([FromBody] ProductCreationDto product)
         {

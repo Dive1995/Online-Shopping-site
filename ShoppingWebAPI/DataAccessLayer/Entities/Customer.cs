@@ -28,7 +28,7 @@ namespace DataAccessLayer.Entities
         // Navigation Properties
 
         // for Order
-        public ICollection<Order> MyProperty { get; set; } = new List<Order>();
+        public ICollection<Order> Orders { get; set; } = new List<Order>();
 
     }
 }

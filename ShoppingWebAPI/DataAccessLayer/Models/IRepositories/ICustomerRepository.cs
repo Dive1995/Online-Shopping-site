@@ -5,7 +5,9 @@ namespace DataAccessLayer.Models
 {
     public interface ICustomerRepository
     {
-        bool Login(string email, string password);
-        void Register(Customer customer);
+        Customer Login(Customer customer);
+        Customer Register(Customer customer);
+        Customer GetCustomer(int customerId);
+        Customer CustomerExist(string email);
     }
 }

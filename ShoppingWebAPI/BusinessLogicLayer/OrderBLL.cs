@@ -72,5 +72,19 @@ namespace BusinessLogicLayer
 
             return orderDto;
         }
+
+        public ICollection<OrderDto> GetAllOrders(int customerId)
+        {
+            ICollection<OrderDto> allOrders = new List<OrderDto>();
+
+            var orders = _orderRepository.GetAllOrders(customerId);
+            foreach (var order in orders)
+            {
+                var orderDto = GetSingleOrder(order.Id);
+                allOrders.Add(orderDto);
+            }
+
+            return allOrders;
+        }
     }
 }

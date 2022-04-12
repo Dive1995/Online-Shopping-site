@@ -1,10 +1,13 @@
 ﻿using System;
 using BusinessLogicLayer;
 using BusinessLogicLayer.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ShoppingWebAPI.Controllers
 {
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
     [Route("/api/orders")]
     public class OrderController : ControllerBase
@@ -41,5 +44,16 @@ namespace ShoppingWebAPI.Controllers
             return StatusCode(201, "Order Successfully added.");
         }
 
+        [HttpGet("user/{id}")]
+        public IActionResult GetAllOrders(int id)
+        {
+            var orders = _orderBLL.GetAllOrders(id);
+            if(orders.Count <= 0)
+            {
+                return NotFound("You don't have any previous orders.");
+            }
+
+            return Ok(orders);
+        }
     }
 }

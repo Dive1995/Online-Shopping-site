@@ -14,21 +14,28 @@ namespace DataAccessLayer.Models
             _context = context;
         }
 
-        public bool Login(string email, string password)
+        public Customer GetCustomer(int customerId)
         {
-            var user = _context.Customers.FirstOrDefault(login => login.Email == email && login.Password == password);
-
-            if(user == null)
-            {
-                return false;
-            }
-
-            return true;
+            return _context.Customers.FirstOrDefault(customer => customer.Id == customerId);
         }
 
-        public void Register(Customer customer)
+        public Customer Login(Customer customer)
+        {
+            var user = _context.Customers.FirstOrDefault(login => login.Email == customer.Email && login.Password == customer.Password);
+
+            return user;
+        }
+
+        public Customer Register(Customer customer)
         {            
             _context.Customers.Add(customer);
+            _context.SaveChanges();
+            return customer;
+        }
+
+        public Customer CustomerExist(string email)
+        {
+            return _context.Customers.FirstOrDefault(customer => customer.Email == email);
         }
     }
 }

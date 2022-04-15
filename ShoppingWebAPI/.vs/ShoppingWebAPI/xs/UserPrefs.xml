@@ -1,21 +1,22 @@
 ﻿<Properties StartupConfiguration="{661A1C12-8400-47D8-AB6D-B4A25278A6D3}|Default">
-  <MonoDevelop.Ide.ItemProperties.ShoppingWebAPI PreferredExecutionTarget="/Applications/Brave Browser.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="BusinessLogicLayer/CustomerBLL.cs">
+  <MonoDevelop.Ide.ItemProperties.ShoppingWebAPI PreferredExecutionTarget="/Applications/Microsoft Edge.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ShoppingWebAPI/appsettings.json">
     <Files>
-      <File FileName="ShoppingWebAPI/Controllers/CustomerController.cs" Line="21" Column="1" />
-      <File FileName="BusinessLogicLayer/CustomerBLL.cs" Line="47" Column="1" />
-      <File FileName="DataAccessLayer/Models/Repositories/CustomerRepository.cs" />
-      <File FileName="DataAccessLayer/Models/IRepositories/ICustomerRepository.cs" />
+      <File FileName="ShoppingWebAPI/Startup.cs" Line="63" Column="1" />
+      <File FileName="ShoppingWebAPI/Controllers/ProductController.cs" Line="28" Column="13" />
+      <File FileName="ShoppingWebAPI/Controllers/ErrorController.cs" Line="33" Column="91" />
+      <File FileName="ShoppingWebAPI/Program.cs" Line="1" Column="1" />
+      <File FileName="ShoppingWebAPI/Controllers/CustomerController.cs" />
+      <File FileName="ShoppingWebAPI/appsettings.json" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ShoppingWebAPI" expanded="True">
-            <Node name="BusinessLogicLayer" expanded="True">
-              <Node name="CustomerBLL.cs" selected="True" />
-            </Node>
+            <Node name="BusinessLogicLayer" expanded="True" />
             <Node name="ShoppingWebAPI" expanded="True">
               <Node name="Controllers" expanded="True" />
+              <Node name="appsettings.json" selected="True" />
             </Node>
           </Node>
         </State>
@@ -25,9 +26,7 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/BusinessLogicLayer/CustomerBLL.cs" relfile="BusinessLogicLayer/CustomerBLL.cs" line="35" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

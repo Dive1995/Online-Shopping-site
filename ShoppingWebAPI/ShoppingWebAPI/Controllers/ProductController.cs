@@ -5,6 +5,7 @@ using DataAccessLayer.Entities;
 using BusinessLogicLayer.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Logging;
 
 namespace ShoppingWebAPI.Controllers
 {
@@ -13,15 +14,20 @@ namespace ShoppingWebAPI.Controllers
     public class ProductController : ControllerBase
     {
         private readonly ProductBLL _productBLL;
+        private readonly ILogger<ProductController> _logger;
 
-        public ProductController(ProductBLL productBLL)
+        public ProductController(ProductBLL productBLL, ILogger<ProductController> logger)
         {
             _productBLL = productBLL;
+            _logger = logger;
         }
 
         [HttpGet]
         public IActionResult Products()
         {
+            throw new Exception("Page not found");
+            _logger.LogWarning("Producct page requested");
+            _logger.LogWarning("Product Page returned");
             return Ok("Products Page");
         }
 

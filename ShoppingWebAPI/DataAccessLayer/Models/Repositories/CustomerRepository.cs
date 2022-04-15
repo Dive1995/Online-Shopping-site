@@ -14,16 +14,14 @@ namespace DataAccessLayer.Models
             _context = context;
         }
 
-        public Customer GetCustomer(int customerId)
+        public Customer GetCustomerWithId(int customerId)
         {
             return _context.Customers.FirstOrDefault(customer => customer.Id == customerId);
         }
 
-        public Customer Login(Customer customer)
+        public Customer GetCustomerWithEmail(string Email)
         {
-            var user = _context.Customers.FirstOrDefault(login => login.Email == customer.Email && login.Password == customer.Password);
-
-            return user;
+            return _context.Customers.FirstOrDefault(login => login.Email == Email);
         }
 
         public Customer Register(Customer customer)
@@ -33,9 +31,9 @@ namespace DataAccessLayer.Models
             return customer;
         }
 
-        public Customer CustomerExist(string email)
-        {
-            return _context.Customers.FirstOrDefault(customer => customer.Email == email);
-        }
+        //public Customer CustomerExist(string email)
+        //{
+        //    return _context.Customers.FirstOrDefault(customer => customer.Email == email);
+        //}
     }
 }

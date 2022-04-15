@@ -33,13 +33,22 @@ namespace BusinessLogicLayer
 
         public CustomerDto RegisterCustomer(CustomerCreationDto customerCreationDto)
         {
-            var customerExist = _customerRepository.CustomerExist(customerCreationDto.Email);
+            var customerExist = _customerRepository.GetCustomerWithEmail(customerCreationDto.Email);
             if (customerExist != null)
             {
                 return null; 
             }
 
-            var newCustomer = _customerRepository.Register(_customerMapper.Map<Customer>(customerCreationDto));
+
+            //var newCustomer = _customerRepository.Register(_customerMapper.Map<Customer>(customerCreationDto));
+            var customerEntity = new Customer()
+            {
+                Username = customerCreationDto.Username,
+                Email = customerCreationDto.Email,
+                Password = BCrypt.Net.BCrypt.HashPassword(customerCreationDto.Password)
+            };
+            var newCustomer = _customerRepository.Register(customerEntity);
+
             var newCustomerDto = _customerMapper.Map<CustomerDto>(newCustomer);
             newCustomerDto.Token = GenerateToken(newCustomerDto);
 
@@ -48,9 +57,16 @@ namespace BusinessLogicLayer
 
         public CustomerDto Login(CustomerLoginDto customerLoginDto)
         {
-            var customer = _customerRepository.Login(_customerMapper.Map<Customer>(customerLoginDto));
+            var customer = _customerRepository.GetCustomerWithEmail(customerLoginDto.Email);
 
             if(customer == null)
+            {
+                return null;
+            }
+
+            bool isValidPassword = BCrypt.Net.BCrypt.Verify(customerLoginDto.Password, customer.Password);
+
+            if (!isValidPassword)
             {
                 return null;
             }
@@ -83,7 +99,7 @@ namespace BusinessLogicLayer
 
         public CustomerDto GetCustomer(int customerId)
         {
-            return _customerMapper.Map<CustomerDto>(_customerRepository.GetCustomer(customerId));
+            return _customerMapper.Map<CustomerDto>(_customerRepository.GetCustomerWithId(customerId));
         }
     }
 }

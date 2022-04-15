@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using BusinessLogicLayer.Models;
 
+
 namespace ShoppingWebAPI
 {
     public class Startup
@@ -78,10 +79,9 @@ namespace ShoppingWebAPI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            
+
+            app.UseExceptionHandler("/api/error");
 
             app.UseMvc();
             app.UseRouting();

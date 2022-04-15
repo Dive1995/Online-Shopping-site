@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "gqCHtoz2Ia1rR9r1c8SuIZRxGo52PC50I42C7TAWi1t5+RQZXt8ivl5oWs6Or2y9br21VpEPte6Dn27bLdfaoQ==",
+  "dgSpecHash": "a9Fq8nWIPc/qE30YtErZsh0Yyt9AaJUrPH1nR4KpnJbaFXITV5bBgitw7KxQdyUfur9e4I7WURI/hDwo7zg3BA==",
   "success": true,
   "projectFilePath": "/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/BusinessLogicLayer/BusinessLogicLayer.csproj",
   "expectedPackageFiles": [
     "/Users/dive95/.nuget/packages/automapper/11.0.1/automapper.11.0.1.nupkg.sha512",
+    "/Users/dive95/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
     "/Users/dive95/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "/Users/dive95/.nuget/packages/microsoft.bcl.hashcode/1.1.0/microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "/Users/dive95/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",

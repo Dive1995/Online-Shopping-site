@@ -23,17 +23,37 @@ namespace ShoppingWebAPI
     public class Startup
     {
         private readonly IConfiguration _configuration;
+        private readonly string _myPolicyName = "MyPolicy";
 
         public Startup(IConfiguration configuration)
         {
             _configuration = configuration;
         }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddControllers();
+            //services.AddCors(options =>
+            //{
+            //    options.AddDefaultPolicy(
+            //        builder => builder.WithOrigins("http://localhost:4200"));
+            //}
+            //);
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(_myPolicyName,
+                builder =>
+                {
+                    builder.WithOrigins("http://localhost:5000",
+                                        "http://localhost:4200"
+                                        )
+                                        .AllowAnyHeader()
+                                        .AllowAnyMethod();
+                });
+            });
+
+
+
             services.AddMvc(options => options.EnableEndpointRouting = false);
 
             var connectionString = _configuration.GetConnectionString("ShoppingConnectionString");
@@ -79,13 +99,14 @@ namespace ShoppingWebAPI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            
+
+            app.UseCors(_myPolicyName);
 
             app.UseExceptionHandler("/api/error");
 
             app.UseMvc();
-            app.UseRouting();
             app.UseAuthentication();
+            app.UseRouting();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

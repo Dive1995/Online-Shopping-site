@@ -19,6 +19,7 @@ namespace ShoppingWebAPI.Controllers
             _orderBLL = orderBLL;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult Order()
         {

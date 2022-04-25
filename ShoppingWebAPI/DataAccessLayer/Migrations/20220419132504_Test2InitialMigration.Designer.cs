@@ -4,14 +4,16 @@ using DataAccessLayer.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(ShoppingContext))]
-    partial class ShoppingContextModelSnapshot : ModelSnapshot
+    [Migration("20220419132504_Test2InitialMigration")]
+    partial class Test2InitialMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -72,6 +74,22 @@ namespace DataAccessLayer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Customers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Email = "willsmith@gmail.com",
+                            Password = "password",
+                            Username = "Will"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Email = "elonmsuk@gmail.com",
+                            Password = "password",
+                            Username = "Elon"
+                        });
                 });
 
             modelBuilder.Entity("DataAccessLayer.Entities.Invoice", b =>
@@ -122,6 +140,26 @@ namespace DataAccessLayer.Migrations
                     b.HasIndex("CustomerId");
 
                     b.ToTable("Orders");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CustomerId = 1,
+                            OrderDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CustomerId = 1,
+                            OrderDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CustomerId = 2,
+                            OrderDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("DataAccessLayer.Entities.OrderItems", b =>
@@ -147,6 +185,36 @@ namespace DataAccessLayer.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("OrderItems");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            OrderId = 1,
+                            ProductId = 1,
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            Id = 2,
+                            OrderId = 1,
+                            ProductId = 2,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            OrderId = 1,
+                            ProductId = 3,
+                            Quantity = 4
+                        },
+                        new
+                        {
+                            Id = 4,
+                            OrderId = 1,
+                            ProductId = 1,
+                            Quantity = 10
+                        });
                 });
 
             modelBuilder.Entity("DataAccessLayer.Entities.Product", b =>
@@ -253,6 +321,34 @@ namespace DataAccessLayer.Migrations
                         .IsUnique();
 
                     b.ToTable("Shippings");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "Colombo",
+                            DeliveryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Elon",
+                            LastName = "Musk",
+                            OrderId = 1,
+                            PhoneNum = 212223333,
+                            PostalCode = 33,
+                            ShippingDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Delivered"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "Galle",
+                            DeliveryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Will",
+                            LastName = "Smith",
+                            OrderId = 2,
+                            PhoneNum = 212224444,
+                            PostalCode = 233,
+                            ShippingDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Preparing"
+                        });
                 });
 
             modelBuilder.Entity("DataAccessLayer.Entities.Invoice", b =>

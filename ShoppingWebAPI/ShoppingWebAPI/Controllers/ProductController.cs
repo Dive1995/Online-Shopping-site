@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Logging;
 
+
 namespace ShoppingWebAPI.Controllers
 {
     [ApiController]
@@ -25,8 +26,10 @@ namespace ShoppingWebAPI.Controllers
         [HttpGet]
         public IActionResult Products()
         {
-            throw new Exception("Page not found");
             _logger.LogWarning("Producct page requested");
+
+            throw new Exception("Page not found");
+
             _logger.LogWarning("Product Page returned");
             return Ok("Products Page");
         }

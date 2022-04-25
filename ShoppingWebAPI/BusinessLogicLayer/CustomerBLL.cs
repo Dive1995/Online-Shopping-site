@@ -8,6 +8,7 @@ using DataAccessLayer.Models;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using Microsoft.Extensions.Options;
+using System.Linq;
 
 namespace BusinessLogicLayer
 {
@@ -39,8 +40,6 @@ namespace BusinessLogicLayer
                 return null; 
             }
 
-
-            //var newCustomer = _customerRepository.Register(_customerMapper.Map<Customer>(customerCreationDto));
             var customerEntity = new Customer()
             {
                 Username = customerCreationDto.Username,
@@ -81,7 +80,7 @@ namespace BusinessLogicLayer
         public string GenerateToken(CustomerDto customerDto)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var jwt = _appSettings.JWTkey;
+            //var jwt = _appSettings.JWTkey;
             var key = Encoding.ASCII.GetBytes(_appSettings.JWTkey);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
@@ -96,6 +95,26 @@ namespace BusinessLogicLayer
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
         }
+
+        //public int GetUserIdFromToken(string token)
+        //{
+        //    var tokenHandler = new JwtSecurityTokenHandler();
+        //    var key = Encoding.ASCII.GetBytes(_appSettings.JWTkey);
+
+        //    tokenHandler.ValidateToken(token, new TokenValidationParameters
+        //    {
+        //        ValidateIssuerSigningKey = true,
+        //        IssuerSigningKey = new SymmetricSecurityKey(key),
+        //        ValidateIssuer = false,
+        //        ValidateAudience = false,
+        //        ClockSkew = TimeSpan.Zero
+        //    }, out SecurityToken validatedToken);
+
+        //    var jwtToken = (JwtSecurityToken)validatedToken;
+        //    var userId = int.Parse(jwtToken.Claims.FirstOrDefault(x => x.Type == "NameIdentifier").Value);
+
+        //    return userId;
+        //}
 
         public CustomerDto GetCustomer(int customerId)
         {

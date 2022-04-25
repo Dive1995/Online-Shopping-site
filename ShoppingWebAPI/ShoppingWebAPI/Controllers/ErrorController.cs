@@ -19,7 +19,6 @@ namespace ShoppingWebAPI.Controllers
         }
 
         [Route("api/error")]
-        //[AllowAnonymous]
         public IActionResult Error()
         {
             var exception = HttpContext.Features.Get<IExceptionHandlerFeature>();

@@ -30,10 +30,5 @@ namespace DataAccessLayer.Models
             _context.SaveChanges();
             return customer;
         }
-
-        //public Customer CustomerExist(string email)
-        //{
-        //    return _context.Customers.FirstOrDefault(customer => customer.Email == email);
-        //}
     }
 }

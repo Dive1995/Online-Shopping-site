@@ -1,10 +1,17 @@
 ﻿<Properties StartupConfiguration="{661A1C12-8400-47D8-AB6D-B4A25278A6D3}|Default">
-  <MonoDevelop.Ide.ItemProperties.ShoppingWebAPI PreferredExecutionTarget="/Applications/Microsoft Edge.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ShoppingWebAPI/Controllers/ProductController.cs">
+  <MonoDevelop.Ide.ItemProperties.ShoppingWebAPI PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="DataAccessLayer/Contexts/ShoppingContext.cs">
     <Files>
-      <File FileName="ShoppingWebAPI/Controllers/ProductController.cs" Line="17" Column="6" />
-      <File FileName="ShoppingWebAPI/Startup.cs" />
-      <File FileName="ShoppingWebAPI/Controllers/CustomerController.cs" />
+      <File FileName="ShoppingWebAPI/Controllers/ProductController.cs" Line="30" Column="1" />
+      <File FileName="ShoppingWebAPI/Startup.cs" Line="109" Column="30" />
+      <File FileName="ShoppingWebAPI/Controllers/CustomerController.cs" Line="28" Column="30" />
+      <File FileName="BusinessLogicLayer/ProductBLL.cs" />
+      <File FileName="DataAccessLayer/Models/Repositories/ProductRepository.cs" />
+      <File FileName="DataAccessLayer/Entities/Product.cs" />
+      <File FileName="BusinessLogicLayer/Models/ProductDto.cs" />
+      <File FileName="ShoppingWebAPI/appsettings.json" Line="14" Column="52" />
+      <File FileName="BusinessLogicLayer/CustomerBLL.cs" Line="91" Column="52" />
+      <File FileName="DataAccessLayer/Contexts/ShoppingContext.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,15 +19,11 @@
           <Node name="ShoppingWebAPI" expanded="True">
             <Node name="BusinessLogicLayer" expanded="True" />
             <Node name="DataAccessLayer" expanded="True">
-              <Node name="Models" expanded="True">
-                <Node name="Repositories" expanded="True" />
+              <Node name="Contexts" expanded="True">
+                <Node name="ShoppingContext.cs" selected="True" />
               </Node>
             </Node>
-            <Node name="ShoppingWebAPI" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="ProductController.cs" selected="True" />
-              </Node>
-            </Node>
+            <Node name="ShoppingWebAPI" expanded="True" />
           </Node>
         </State>
       </Pad>

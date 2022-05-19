@@ -82,3 +82,4 @@
 /Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/bin/Debug/netcoreapp3.1/Serilog.Sinks.File.dll
 /Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/bin/Debug/netcoreapp3.1/Serilog.Sinks.MSSqlServer.dll
 /Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/bin/Debug/netcoreapp3.1/Serilog.Sinks.PeriodicBatching.dll
+/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/bin/Debug/netcoreapp3.1/mono_crash.11a67480d0.0.json

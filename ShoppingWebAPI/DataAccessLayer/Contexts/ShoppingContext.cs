@@ -119,36 +119,6 @@ namespace DataAccessLayer.Contexts
                 
             //    );
 
-            modelBuilder.Entity<Product>().HasData(
-                new Product()
-                {
-                    Id = 1,
-                    Name = "Leather Jeans",
-                    Price = 50,
-                    NumOfStock = 100,
-                    CategoryId = 1,
-                    Image = "Jeans.png"
-                },
-                new Product()
-                {
-                    Id = 2,
-                    Name = "Summer Shirt",
-                    Price = 30,
-                    NumOfStock = 50,
-                    CategoryId = 2,
-                    Image = "SummerShirt.png"
-                },
-                new Product()
-                {
-                    Id = 3,
-                    Name = "Baby Jeans",
-                    Price = 60,
-                    NumOfStock = 10,
-                    CategoryId = 1,
-                    Image = "BabyJeans.png"
-                }
-                );
-
             modelBuilder.Entity<Category>().HasData(
                 new Category() {
                     Id = 1,

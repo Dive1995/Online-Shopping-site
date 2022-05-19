@@ -20,5 +20,10 @@ namespace DataAccessLayer.Models
             var categories = _context.Categories.ToList();
             return categories;
         }
+
+        public ICollection<Category> GetCategoryForSection(string section)
+        {
+            return _context.Categories.Where(category => category.Section.ToLower() == section.ToLower()).ToList();
+        }
     }
 }

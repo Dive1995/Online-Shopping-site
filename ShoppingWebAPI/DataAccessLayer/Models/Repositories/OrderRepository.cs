@@ -16,10 +16,11 @@ namespace DataAccessLayer.Models
             _context = context ?? throw new ArgumentNullException(nameof(context)); ;
         }
 
-        public int AddOrder(Order order)
+        public Order AddOrder(Order order)
         {
             _context.Orders.Add(order);
-            return _context.SaveChanges();
+            _context.SaveChanges();
+            return order;
         }
 
         public ICollection<Order> GetAllOrders(int cutomerId)

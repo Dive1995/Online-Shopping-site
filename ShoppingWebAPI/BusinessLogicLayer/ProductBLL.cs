@@ -12,12 +12,14 @@ namespace BusinessLogicLayer
     public class ProductBLL
     {
         private readonly IProductRepository _productRepository;
+        private readonly ICategoryRepository _categoryRepository;
         private readonly ILogger<ProductBLL> _logger;
         private readonly Mapper _productMapper;
 
-        public ProductBLL(IProductRepository productRepository, ILogger<ProductBLL> logger)
+        public ProductBLL(IProductRepository productRepository, ICategoryRepository categoryRepository, ILogger<ProductBLL> logger)
         {
             _productRepository = productRepository;
+            _categoryRepository = categoryRepository;
             _logger = logger;
 
             var _configProduct = new MapperConfiguration(cfg => {
@@ -25,6 +27,21 @@ namespace BusinessLogicLayer
                 cfg.CreateMap<Product, ProductCreationDto>().ReverseMap();
                 });
             _productMapper = new Mapper(_configProduct);
+        }
+
+        public ICollection<ProductDto> GetProductSection(string section)
+        {
+            //ICollection<ProductDto> allProducts;
+
+            //var categories = _categoryRepository.GetCategoryForSection(section);
+            //foreach(var category in categories)
+            //{
+            //    var categoryOfProducts = GetAllProducts(category.Id);
+            //    allProducts.Add(categoryOfProducts);
+            //}
+
+            var allProducts = _productRepository.GetProductsOfSection(section);
+            return _productMapper.Map<ICollection<ProductDto>>(allProducts);
         }
 
         public ICollection<ProductDto> GetAllProducts(int categoryId)

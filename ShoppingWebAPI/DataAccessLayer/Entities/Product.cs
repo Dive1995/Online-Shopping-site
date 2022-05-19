@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using BusinessLogicLayer.Models;
 
 namespace DataAccessLayer.Entities
 {
@@ -13,12 +14,15 @@ namespace DataAccessLayer.Entities
         [Required]
         [MaxLength(200)]
         public string Name { get; set; }
-        public int NumOfStock { get; set; }
         [Required]
         public string Image { get; set; }
         [Required]
         public float Price { get; set; }
-        
+        public string Description { get; set; }
+        [Required]
+        public ICollection<ProductStock> ProductStock { get; set; }
+
+
         // Navigation Properties
 
         // for OrderItems

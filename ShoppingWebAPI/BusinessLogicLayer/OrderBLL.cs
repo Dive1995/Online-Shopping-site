@@ -33,7 +33,7 @@ namespace BusinessLogicLayer
             _orderMapper = new Mapper(_orderConfuguration);
         }
 
-        public int AddNewOrder(OrderCreationDto orderCreationDto)
+        public OrderDto AddNewOrder(OrderCreationDto orderCreationDto)
         {
             var orderDetails = new Order()
             {
@@ -44,12 +44,24 @@ namespace BusinessLogicLayer
                 OrderItems = _orderMapper.Map<ICollection<OrderItems>>(orderCreationDto.OrderItems)
             };
             //var orderEntity = _orderMapper.Map<Order>(orderCreationDto);
-            return _orderRepository.AddOrder(orderDetails);
+            return _orderMapper.Map<OrderDto>(_orderRepository.AddOrder(orderDetails));
         }
 
-        public OrderDto GetSingleOrder(int orderId)
+        public OrderDto GetSingleOrder(int orderId, int userIdFromToken)
         {
             var orderEntity = _orderRepository.GetSingleOrder(orderId);
+
+            if (orderEntity == null)
+            {
+                return null;
+            }
+
+            if(orderEntity.CustomerId != userIdFromToken)
+            {
+                return null;
+            }
+
+
             ICollection<OrderItemsDto> newOrderItems = new List<OrderItemsDto>();
 
             foreach(var orderItem in orderEntity.OrderItems)
@@ -68,19 +80,22 @@ namespace BusinessLogicLayer
                 Invoice = _orderMapper.Map<InvoiceDto>(orderEntity.Invoice)
             };
 
-
-
             return orderDto;
         }
 
-        public ICollection<OrderDto> GetAllOrders(int customerId)
+        public ICollection<OrderDto> GetAllOrders(int customerId, int userIdFromToken)
         {
+            if(customerId != userIdFromToken)
+            {
+                return null;
+            }
+
             ICollection<OrderDto> allOrders = new List<OrderDto>();
 
             var orders = _orderRepository.GetAllOrders(customerId);
             foreach (var order in orders)
             {
-                var orderDto = GetSingleOrder(order.Id);
+                var orderDto = GetSingleOrder(order.Id, userIdFromToken);
                 allOrders.Add(orderDto);
             }
 

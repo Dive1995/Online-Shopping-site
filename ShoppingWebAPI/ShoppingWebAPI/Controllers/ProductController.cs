@@ -23,16 +23,36 @@ namespace ShoppingWebAPI.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
-        public IActionResult Products()
+        //[HttpGet]
+        //public IActionResult Products()
+        //{
+        //    _logger.LogWarning("Producct page requested");
+
+        //    throw new Exception("Page not found");
+
+        //    _logger.LogWarning("Product Page returned");
+        //    return Ok("Products Page");
+        //}
+
+        [HttpGet("{id}")]
+        public IActionResult GetSingleProduct(int id)
         {
-            _logger.LogWarning("Producct page requested");
+            var product = _productBLL.GetProduct(id);
+            if (product == null)
+            {
+                return NotFound("The product you are searching for is not available.");
+            }
 
-            throw new Exception("Page not found");
-
-            _logger.LogWarning("Product Page returned");
-            return Ok("Products Page");
+            return Ok(product);
         }
+
+        [HttpGet("section/{section}")]
+        public IActionResult GetSectionProducts(string section)
+        {
+            var products = _productBLL.GetProductSection(section);
+            return Ok(products);
+        }
+
 
         [HttpGet("category/{id}")]
         public IActionResult GetAllProducts(int id)
@@ -47,17 +67,6 @@ namespace ShoppingWebAPI.Controllers
             return Ok(products);
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetSingleProduct(int id)
-        {
-            var product = _productBLL.GetProduct(id);
-            if (product == null)
-            {
-                return NotFound("The product you are searching for is not available.");
-            }
-
-            return Ok(product);
-        }
 
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPost]

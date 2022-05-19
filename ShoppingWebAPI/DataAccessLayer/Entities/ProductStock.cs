@@ -1,30 +1,21 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using DataAccessLayer.Entities;
 
-namespace DataAccessLayer.Entities
+namespace BusinessLogicLayer.Models
 {
-    public class OrderItems
+    public class ProductStock
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Required]
         public int Quantity { get; set; }
+        [Required]
         public string Size { get; set; }
 
-        // Navigation Properties
-
-        // for Product
-        [ForeignKey("ProductId")]
-        public Product Product { get; set; }
         public int ProductId { get; set; }
 
-        // for Order
-        [ForeignKey("OrderId")]
-        public Order Order { get; set; }
-        public int OrderId { get; set; }
-
-        
     }
 }

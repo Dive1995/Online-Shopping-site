@@ -6,8 +6,9 @@ namespace DataAccessLayer.Models
 {
     public interface IProductRepository
     {
-        Product GetSingleProduct(int id);
-        ICollection<Product> GetCategoryOfProducts(int categoryId);
         int AddProduct(Product product);
+        Product GetSingleProduct(int id);
+        ICollection<Product> GetProductsOfSection(string section);
+        ICollection<Product> GetCategoryOfProducts(int categoryId);
     }
 }

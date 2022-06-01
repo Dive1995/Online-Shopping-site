@@ -67,7 +67,7 @@ namespace ShoppingWebAPI.Controllers
             return Ok(products);
         }
 
-
+        // Create new products
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPost]
         public IActionResult AddProduct([FromBody] ProductCreationDto product)

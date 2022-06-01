@@ -30,7 +30,11 @@ namespace DataAccessLayer.Models
 
         public Order GetSingleOrder(int orderId)
         {
-            return _context.Orders.Include(order => order.Shipping).Include(order => order.OrderItems).Include(order => order.Invoice).FirstOrDefault(order => order.Id == orderId);
+            return _context.Orders
+                .Include(order => order.Shipping).ThenInclude(shipping => shipping.DeliveryOption)
+                .Include(order => order.OrderItems)
+                .Include(order => order.Invoice)
+                .FirstOrDefault(order => order.Id == orderId);
         }
     }
 }

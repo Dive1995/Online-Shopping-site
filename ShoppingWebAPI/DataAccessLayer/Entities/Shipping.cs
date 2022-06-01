@@ -19,6 +19,7 @@ namespace DataAccessLayer.Entities
         public int PostalCode { get; set; }
         public string Status { get; set; }
         public DateTime ShippingDate { get; set; }
+        public DateTime ExpectedDeliveryDate { get; set; }
         public DateTime DeliveryDate { get; set; }
 
 
@@ -27,5 +28,9 @@ namespace DataAccessLayer.Entities
         [ForeignKey("OrderId")]
         public Order Order { get; set; }
         public int OrderId { get; set; }
+        [ForeignKey("DeliveryOptionId")]
+        public DeliveryOption DeliveryOption { get; set; }
+        public int DeliveryOptionId { get; set; }
+
     }
 }

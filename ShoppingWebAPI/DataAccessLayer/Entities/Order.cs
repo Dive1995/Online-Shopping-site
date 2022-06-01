@@ -19,6 +19,8 @@ namespace DataAccessLayer.Entities
         public Customer Customer { get; set; }
         public int CustomerId { get; set; }
 
+        public string Email { get; set; }
+
         // for OrderItem
         public ICollection<OrderItems> OrderItems { get; set; } = new List<OrderItems>();
 

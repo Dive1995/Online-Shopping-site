@@ -1,35 +1,19 @@
 ﻿<Properties StartupConfiguration="{661A1C12-8400-47D8-AB6D-B4A25278A6D3}|Default">
   <MonoDevelop.Ide.ItemProperties.ShoppingWebAPI PreferredExecutionTarget="/Applications/Firefox Developer Edition.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DataAccessLayer/Models/Repositories/OrderRepository.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="BusinessLogicLayer/OrderBLL.cs">
     <Files>
-      <File FileName="ShoppingWebAPI/Controllers/OrderController.cs" Line="27" Column="10" />
-      <File FileName="BusinessLogicLayer/OrderBLL.cs" Line="90" Column="52" />
-      <File FileName="DataAccessLayer/Models/Repositories/OrderRepository.cs" Line="33" Column="1" />
-      <File FileName="BusinessLogicLayer/Models/OrderDto.cs" />
-      <File FileName="ShoppingWebAPI/Controllers/CustomerController.cs" Line="50" Column="44" />
-      <File FileName="BusinessLogicLayer/CustomerBLL.cs" Line="98" Column="1" />
-      <File FileName="ShoppingWebAPI/Controllers/ProductController.cs" Line="60" Column="44" />
-      <File FileName="BusinessLogicLayer/ProductBLL.cs" Line="24" Column="1" />
-      <File FileName="DataAccessLayer/Entities/Order.cs" Line="20" Column="44" />
-      <File FileName="DataAccessLayer/Models/IRepositories/IOrderRepository.cs" Line="11" Column="28" />
+      <File FileName="BusinessLogicLayer/Template/OrderDetails.html" Line="64" Column="43" />
+      <File FileName="BusinessLogicLayer/OrderBLL.cs" Line="76" Column="37" />
+      <File FileName="ShoppingWebAPI/Controllers/OrderController.cs" />
+      <File FileName="BusinessLogicLayer/Template/OrderConfirmationEmail.html" Line="1" Column="1" NotebookId="1" />
+      <File FileName="BusinessLogicLayer/Services/MailService.cs" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ShoppingWebAPI" expanded="True">
-            <Node name="BusinessLogicLayer" expanded="True" />
-            <Node name="DataAccessLayer" expanded="True">
-              <Node name="Contexts" expanded="True" />
-              <Node name="Entities" expanded="True" />
-              <Node name="Models" expanded="True">
-                <Node name="IRepositories" expanded="True" />
-                <Node name="Repositories" expanded="True">
-                  <Node name="OrderRepository.cs" selected="True" />
-                </Node>
-              </Node>
-            </Node>
-            <Node name="ShoppingWebAPI" expanded="True">
-              <Node name="Controllers" expanded="True" />
+            <Node name="BusinessLogicLayer" expanded="True">
+              <Node name="OrderBLL.cs" selected="True" />
             </Node>
           </Node>
         </State>
@@ -39,7 +23,9 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/BusinessLogicLayer/Services/MailService.cs" relfile="BusinessLogicLayer/Services/MailService.cs" line="22" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

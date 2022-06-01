@@ -1,4 +1,6 @@
 ﻿using System;
+using DataAccessLayer.Entities;
+
 namespace BusinessLogicLayer.Models
 {
     public class ShippingDto
@@ -11,7 +13,9 @@ namespace BusinessLogicLayer.Models
         public int PostalCode { get; set; }
         public string Status { get; set; }
         public DateTime ShippingDate { get; set; }
+        public DateTime ExpectedDeliveryDate { get; set; }
         public DateTime DeliveryDate { get; set; }
+        public DeliveryOption DeliveryOption { get; set; }
 
     }
 }

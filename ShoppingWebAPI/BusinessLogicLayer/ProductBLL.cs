@@ -29,21 +29,16 @@ namespace BusinessLogicLayer
             _productMapper = new Mapper(_configProduct);
         }
 
+
+        // Get all products for a section
         public ICollection<ProductDto> GetProductSection(string section)
         {
-            //ICollection<ProductDto> allProducts;
-
-            //var categories = _categoryRepository.GetCategoryForSection(section);
-            //foreach(var category in categories)
-            //{
-            //    var categoryOfProducts = GetAllProducts(category.Id);
-            //    allProducts.Add(categoryOfProducts);
-            //}
-
             var allProducts = _productRepository.GetProductsOfSection(section);
             return _productMapper.Map<ICollection<ProductDto>>(allProducts);
         }
 
+
+        // get all products for a specific category
         public ICollection<ProductDto> GetAllProducts(int categoryId)
         {
             _logger.LogWarning("Getting data from Server......");
@@ -51,6 +46,8 @@ namespace BusinessLogicLayer
             return _productMapper.Map<ICollection<ProductDto>>(products);
         }
 
+
+        // Get a single product
         public ProductDto GetProduct(int id)
         {
 
@@ -58,6 +55,8 @@ namespace BusinessLogicLayer
             return _productMapper.Map<ProductDto>(product);
         }
 
+
+        // Create a new product
         public int AddProduct(ProductCreationDto product)
         {
             var productEntity = _productMapper.Map<Product>(product);

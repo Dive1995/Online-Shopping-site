@@ -98,6 +98,27 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("Customers");
                 });
 
+            modelBuilder.Entity("DataAccessLayer.Entities.DeliveryOption", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Days")
+                        .HasColumnType("int");
+
+                    b.Property<float>("Price")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DeliveryOptions");
+                });
+
             modelBuilder.Entity("DataAccessLayer.Entities.Invoice", b =>
                 {
                     b.Property<int>("Id")
@@ -137,6 +158,9 @@ namespace DataAccessLayer.Migrations
 
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
@@ -222,6 +246,12 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("DeliveryDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("DeliveryOptionId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ExpectedDeliveryDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(15)")
                         .HasMaxLength(15);
@@ -246,6 +276,8 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DeliveryOptionId");
 
                     b.HasIndex("OrderId")
                         .IsUnique();
@@ -306,6 +338,12 @@ namespace DataAccessLayer.Migrations
 
             modelBuilder.Entity("DataAccessLayer.Entities.Shipping", b =>
                 {
+                    b.HasOne("DataAccessLayer.Entities.DeliveryOption", "DeliveryOption")
+                        .WithMany()
+                        .HasForeignKey("DeliveryOptionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("DataAccessLayer.Entities.Order", "Order")
                         .WithOne("Shipping")
                         .HasForeignKey("DataAccessLayer.Entities.Shipping", "OrderId")

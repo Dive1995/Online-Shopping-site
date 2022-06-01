@@ -12,6 +12,7 @@ namespace DataAccessLayer.Contexts
         public DbSet<OrderItems> OrderItems { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Shipping> Shippings { get; set; }
+        public DbSet<DeliveryOption> DeliveryOptions { get; set; }
 
 
         public ShoppingContext(DbContextOptions options) : base(options)

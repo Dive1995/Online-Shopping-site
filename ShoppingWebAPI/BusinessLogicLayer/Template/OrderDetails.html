@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .message{
+            color: darkviolet;
+            font-weight: bold
+        }
+    </style>
+</head>
+<body>
+    
+        <div style="max-width: 60vw; margin: 0 auto">
+            <p>Hi [firstName], your order is Confirmed !</p>
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center">
+                    <div>
+                        <a href="#">
+                            <h1>
+                                Trends
+                            </h1>
+                        </a>
+                    </div>
+                    <div>
+                        <h2>Order #[orderId]</h2>
+                        <p class="fs-5">[orderStatus]</p>
+                    </div>
+                </div>
+
+                <div style="display:grid;grid-template-columns: 1fr 1fr;">
+                    <div class="col-6 lh-1">
+                        <h3 class="fw-bold">Shipping Address</h3>
+                        <p style="color:gray">
+                            [userName]
+                        </p>
+                        <p style="color:gray">[address]</p>
+                        <p style="color:gray">[phoneNum]</p>
+                    </div>
+                    <div>
+                        <h3>Payment Method</h3>
+                        <p style="color:gray">
+                            [paymentMethod]
+                        </p>
+                        <h3 class="fw-bold">Expected delivery date</h3>
+                        <p style="color:gray">
+                            [expectedDelivery]
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="mt-5">
+                    <div class="d-flex justify-content-between" style="display:flex;justify-content:space-between">
+                        <h3>Order details.</h3>
+                        <p style="color:gray;font-size: 13px">
+                            [orderDate]
+                        </p>
+                    </div>
+                    <hr />
+
+                    <!-- Items List -->
+                    <div class="row mb-3" style="display:grid; grid-template-columns: 4fr 1fr 1fr">
+                        [orderItemList]
+                    </div>
+                </div>
+                <hr />
+
+                <!-- Total -->
+                <div class="row" style="display:grid;grid-template-columns: 4fr 1fr 1fr">
+                    <div class="col-8"></div>
+                    <div class="col-2">
+                        <p style="color:gray;font-size: 15px">Subtotal</p>
+                    </div>
+                    <div class="col-2">
+                        <p>
+                            LKR [subtotal]
+                        </p>
+                    </div>
+                </div>
+                <div class="row" style="display:grid;grid-template-columns: 4fr 1fr 1fr">
+                    <div class="col-8"></div>
+                    <div class="col-2">
+                        <p style="color:gray;font-size: 15px">Shipping</p>
+                    </div>
+                    <div class="col-2">
+                        <p style="font-size: 15px">
+                            LKR [shippingPrice]
+                        </p>
+                    </div>
+                </div>
+                <div class="row" style="display:grid;grid-template-columns: 2fr 1fr">
+                    <div class="col-8"></div>
+                    <div class="col-4">
+                        <hr />
+                    </div>
+                </div>
+                <div class="row" style="display:grid;grid-template-columns: 4fr 1fr 1fr">
+                    <div class="col-8"></div>
+                    <div class="col-2">
+                        <p class="fw-bold text-secondary" style="font-size: 15px; font-weight:bold;color:gray">Total</p>
+                    </div>
+                    <div class="col-2">
+                        <p class="fw-bold" style="font-size: 15px;font-weight:bold">
+                            LKR [total]
+                        </p>
+                    </div>
+                </div>
+                <h3>Thank You for shopping with us.</h3>
+            </div>
+        </div>
+
+</body>
+</html>

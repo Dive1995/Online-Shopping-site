@@ -20,5 +20,8 @@ namespace BusinessLogicLayer.Models
         public int PostalCode { get; set; }
         public string Status { get; set; }
         public int OrderId { get; set; }
+        public DateTime ExpectedDeliveryDate { get; set; }
+        [Required]
+        public int DeliveryOptionId { get; set; }
     }
 }

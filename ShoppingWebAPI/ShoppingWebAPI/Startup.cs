@@ -16,7 +16,7 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using BusinessLogicLayer.Models;
-
+using BusinessLogicLayer.Services;
 
 namespace ShoppingWebAPI
 {
@@ -32,13 +32,6 @@ namespace ShoppingWebAPI
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddCors(options =>
-            //{
-            //    options.AddDefaultPolicy(
-            //        builder => builder.WithOrigins("http://localhost:4200"));
-            //}
-            //);
-
             services.AddCors(options =>
             {
                 options.AddPolicy(_myPolicyName,
@@ -83,6 +76,7 @@ namespace ShoppingWebAPI
 
             services.AddScoped<ProductBLL>();
             services.AddScoped<OrderBLL>();
+            services.AddScoped<CategoryBLL>();
             services.AddScoped<CustomerBLL>();
             services.AddSingleton<AppSettings>();
             //services.AddAutoMapper(typeof(Startup));
@@ -93,6 +87,12 @@ namespace ShoppingWebAPI
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IOrderItemsRepository, OrderItemRepository>();
             services.AddScoped<IShippingRepository, ShippingRepository>();
+
+            // Email settings
+            var mailSetting = _configuration.GetSection("MailSettings");
+            services.Configure<MailSettings>(mailSetting);
+            var appSettin = mailSetting.Get<MailSettings>();
+            services.AddTransient<IMailService, MailService>();
 
         }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using AutoMapper;
 using BusinessLogicLayer.Models;
+using BusinessLogicLayer.Services;
 using DataAccessLayer.Entities;
 using DataAccessLayer.Models;
 
@@ -12,8 +13,9 @@ namespace BusinessLogicLayer
         private readonly IOrderRepository _orderRepository;
         private readonly IProductRepository _productRepository;
         private readonly Mapper _orderMapper;
+        private readonly IMailService _mailService;
 
-        public OrderBLL(IOrderRepository orderRepository, IProductRepository productRepository)
+        public OrderBLL(IOrderRepository orderRepository, IProductRepository productRepository, IMailService mailService)
         {
             _orderRepository = orderRepository;
             _productRepository = productRepository;
@@ -31,20 +33,40 @@ namespace BusinessLogicLayer
                 //cfg.CreateMap<OrderItemsDto, ProductInvoiceDto>().ReverseMap(); // ProductInvoceDto -> OrderItemsDto make it as one step (remove ProductInvoiceDto)
             });
             _orderMapper = new Mapper(_orderConfuguration);
+
+            _mailService = mailService;
         }
 
         public OrderDto AddNewOrder(OrderCreationDto orderCreationDto)
         {
+            var order = orderCreationDto;
             var orderDetails = new Order()
             {
                 CustomerId = orderCreationDto.CustomerId,
+                Email = orderCreationDto.Email,
                 OrderDate = DateTime.Now,
                 Invoice = _orderMapper.Map<Invoice>(orderCreationDto.Invoice),
                 Shipping = _orderMapper.Map<Shipping>(orderCreationDto.Shipping),
-                OrderItems = _orderMapper.Map<ICollection<OrderItems>>(orderCreationDto.OrderItems)
+                OrderItems = _orderMapper.Map<ICollection<OrderItems>>(orderCreationDto.OrderItems),
+                //Shipping = {
+                //    FirstName = orderCreationDto.Shipping.FirstName,
+                //    LastName = orderCreationDto.Shipping.LastName,
+                //    PhoneNum = orderCreationDto.Shipping.PhoneNum,
+                //    Address = orderCreationDto.Shipping.Address,
+                //    PostalCode = orderCreationDto.Shipping.PostalCode,
+                //    Status = orderCreationDto.Shipping.Status,
+                //    ExpectedDeliveryDate = orderCreationDto.Shipping.ExpectedDeliveryDate,
+                //    ShippingDate = new DateTime(),
+                //    DeliveryDate = new DateTime(),
+                //}
             };
-            //var orderEntity = _orderMapper.Map<Order>(orderCreationDto);
-            return _orderMapper.Map<OrderDto>(_orderRepository.AddOrder(orderDetails));
+            var createdOrder = _orderRepository.AddOrder(orderDetails);
+            var createdOrderDto = _orderMapper.Map<OrderDto>(createdOrder);
+
+            // sending email
+            _mailService.SendOrderEmailAsync(orderCreationDto.Email, createdOrderDto);
+
+            return createdOrderDto;
         }
 
         public OrderDto GetSingleOrder(int orderId, int userIdFromToken)
@@ -64,16 +86,18 @@ namespace BusinessLogicLayer
 
             ICollection<OrderItemsDto> newOrderItems = new List<OrderItemsDto>();
 
-            foreach(var orderItem in orderEntity.OrderItems)
+            foreach (var orderItem in orderEntity.OrderItems)
             {
                 var product = _orderMapper.Map<OrderItemsDto>(_productRepository.GetSingleProduct(orderItem.ProductId));
                 product.Quantity = orderItem.Quantity;
+                product.Size = orderItem.Size;
                 newOrderItems.Add(product);
             }
 
             var orderDto = new OrderDto()
             {
                 Id = orderEntity.Id,
+                Email = orderEntity.Email,
                 OrderDate = orderEntity.OrderDate,
                 OrderItems = newOrderItems,
                 Shipping = _orderMapper.Map<ShippingDto>(orderEntity.Shipping),

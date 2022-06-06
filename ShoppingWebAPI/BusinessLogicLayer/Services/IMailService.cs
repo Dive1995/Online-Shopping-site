@@ -6,6 +6,6 @@ namespace BusinessLogicLayer.Services
 {
     public interface IMailService
     {
-        Task SendOrderEmailAsync(string receiverEmail, OrderDto order);
+        Task SendOrderEmailAsync(OrderDto order);
     }
 }

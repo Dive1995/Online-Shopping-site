@@ -25,14 +25,18 @@ namespace DataAccessLayer.Models
 
         public ICollection<Order> GetAllOrders(int cutomerId)
         {
-            return _context.Orders.Where(order => order.CustomerId == cutomerId).ToList();
+            return _context.Orders
+                .Include(order => order.Shipping).ThenInclude(shipping => shipping.DeliveryOption)
+                .Include(order => order.OrderItems).ThenInclude(item => item.Product)
+                .Include(order => order.Invoice)
+                .Where(order => order.CustomerId == cutomerId).ToList();
         }
 
         public Order GetSingleOrder(int orderId)
         {
             return _context.Orders
                 .Include(order => order.Shipping).ThenInclude(shipping => shipping.DeliveryOption)
-                .Include(order => order.OrderItems)
+                .Include(order => order.OrderItems).ThenInclude(item => item.Product)
                 .Include(order => order.Invoice)
                 .FirstOrDefault(order => order.Id == orderId);
         }

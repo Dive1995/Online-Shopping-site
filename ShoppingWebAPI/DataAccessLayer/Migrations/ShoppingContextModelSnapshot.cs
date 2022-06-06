@@ -321,7 +321,7 @@ namespace DataAccessLayer.Migrations
                         .IsRequired();
 
                     b.HasOne("DataAccessLayer.Entities.Product", "Product")
-                        .WithMany("OrderItems")
+                        .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

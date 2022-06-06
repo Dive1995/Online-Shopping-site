@@ -18,7 +18,7 @@ namespace BusinessLogicLayer.Services
             _mailSettings = mailSettings.Value;
         }
 
-        public async Task SendOrderEmailAsync(string receiver, OrderDto order)
+        public async Task SendOrderEmailAsync(OrderDto order)
         {
             // Get html template
             //string filePath ="/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/BusinessLogicLayer/Template/OrderDetails.html";
@@ -104,7 +104,7 @@ namespace BusinessLogicLayer.Services
 
             var email = new MimeMessage();
             email.From.Add(MailboxAddress.Parse(_mailSettings.Mail));
-            email.To.Add(MailboxAddress.Parse(receiver));
+            email.To.Add(MailboxAddress.Parse(order.Email));
             email.Subject = "Order Confirmation.";
 
             var builder = new BodyBuilder();

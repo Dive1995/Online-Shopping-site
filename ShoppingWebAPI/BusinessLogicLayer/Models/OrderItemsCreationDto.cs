@@ -6,7 +6,6 @@ namespace BusinessLogicLayer.Models
 {
     public class OrderItemsCreationDto
     {
-        public int OrderId { get; set; }
         [Required]
         public int ProductId { get; set; }
         [Required]

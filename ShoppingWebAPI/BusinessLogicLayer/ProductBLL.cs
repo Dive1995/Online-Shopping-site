@@ -14,19 +14,15 @@ namespace BusinessLogicLayer
         private readonly IProductRepository _productRepository;
         private readonly ICategoryRepository _categoryRepository;
         private readonly ILogger<ProductBLL> _logger;
-        private readonly Mapper _productMapper;
+        private readonly IMapper _productMapper;
 
-        public ProductBLL(IProductRepository productRepository, ICategoryRepository categoryRepository, ILogger<ProductBLL> logger)
+        public ProductBLL(IProductRepository productRepository, ICategoryRepository categoryRepository, ILogger<ProductBLL> logger, IMapper mapper)
         {
             _productRepository = productRepository;
             _categoryRepository = categoryRepository;
             _logger = logger;
 
-            var _configProduct = new MapperConfiguration(cfg => {
-                cfg.CreateMap<Product, ProductDto>().ReverseMap();
-                cfg.CreateMap<Product, ProductCreationDto>().ReverseMap();
-                });
-            _productMapper = new Mapper(_configProduct);
+            _productMapper = mapper;
         }
 
 

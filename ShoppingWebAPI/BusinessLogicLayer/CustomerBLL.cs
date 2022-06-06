@@ -16,20 +16,14 @@ namespace BusinessLogicLayer
     {
         private readonly ICustomerRepository _customerRepository;
         private readonly AppSettings _appSettings;
-        private readonly Mapper _customerMapper;
+        private readonly IMapper _customerMapper;
 
-        public CustomerBLL(ICustomerRepository customerRepository, IOptions<AppSettings> appSettings)
+        public CustomerBLL(ICustomerRepository customerRepository, IOptions<AppSettings> appSettings, IMapper mapper)
         {
             _customerRepository = customerRepository;
             _appSettings = appSettings.Value ?? throw new ArgumentNullException(nameof(appSettings));
-
-            var _customerConfuguration = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<Customer, CustomerCreationDto>().ReverseMap();
-                cfg.CreateMap<Customer, CustomerLoginDto>().ReverseMap();
-                cfg.CreateMap<Customer, CustomerDto>().ReverseMap();
-            });
-            _customerMapper = new Mapper(_customerConfuguration);
+            _customerMapper = mapper;
+            
         }
 
         public CustomerDto RegisterCustomer(CustomerCreationDto customerCreationDto)

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using BusinessLogicLayer;
+using BusinessLogicLayer.IServices;
 using BusinessLogicLayer.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -12,9 +14,9 @@ namespace ShoppingWebAPI.Controllers
     [Route("/api/orders")]
     public class OrderController : ControllerBase
     {
-        private readonly OrderBLL _orderBLL;
+        private readonly IOrderBLL _orderBLL;
 
-        public OrderController(OrderBLL orderBLL)
+        public OrderController(IOrderBLL orderBLL)
         {
             _orderBLL = orderBLL;
         }
@@ -27,8 +29,9 @@ namespace ShoppingWebAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetSingleOrder(int id)
+        public ActionResult<OrderDto> GetSingleOrder(int id)
         {
+            string name = User.Identity.Name;
             var userId = Int32.Parse(User.Identity.Name);
             
 
@@ -42,7 +45,7 @@ namespace ShoppingWebAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddNewOrder([FromBody] OrderCreationDto orderCreationDto)
+        public ActionResult<OrderDto> AddNewOrder([FromBody] OrderCreationDto orderCreationDto)
         {
             var addedOrder = _orderBLL.AddNewOrder(orderCreationDto);
 
@@ -56,7 +59,7 @@ namespace ShoppingWebAPI.Controllers
         }
 
         [HttpGet("user/{id}")]
-        public IActionResult GetAllOrders(int id)
+        public ActionResult<ICollection<OrderDto>> GetAllOrders(int id)
         {
             var userId = Int32.Parse(User.Identity.Name);
 
@@ -72,7 +75,7 @@ namespace ShoppingWebAPI.Controllers
                 return NotFound(new { message = "You don't have any previous orders." });
             }
 
-            return Ok(new { orders });
+            return Ok(orders);
         }
     }
 }

@@ -86,3 +86,5 @@
 /Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/bin/Debug/netcoreapp3.1/MailKit.dll
 /Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/bin/Debug/netcoreapp3.1/MimeKit.dll
 /Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/bin/Debug/netcoreapp3.1/BouncyCastle.Crypto.dll
+/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/bin/Debug/netcoreapp3.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/Users/dive95/Documents/Online-Shopping-site/ShoppingWebAPI/ShoppingWebAPI/bin/Debug/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.dll

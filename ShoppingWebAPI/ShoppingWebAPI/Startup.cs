@@ -40,15 +40,9 @@ namespace ShoppingWebAPI
                 options.AddPolicy(_myPolicyName,
                 builder =>
                 {
-                    builder.WithOrigins("http://localhost:5000",
-                                        "http://localhost:4200"
-                                        )
-                                        .AllowAnyHeader()
-                                        .AllowAnyMethod();
+                    builder.WithOrigins("http://localhost:5000","http://localhost:4200").AllowAnyHeader().AllowAnyMethod().AllowCredentials();
                 });
             });
-
-
 
             services.AddMvc(options => options.EnableEndpointRouting = false);
 
@@ -73,13 +67,12 @@ namespace ShoppingWebAPI
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(jwtKey),
                     ValidateIssuer = false,
-                    ValidateAudience = false
+                    ValidateLifetime = true,
+                    ValidateAudience = false,
+                    ClockSkew = TimeSpan.Zero
                 };
             });
 
-            services.AddScoped<ProductBLL>();
-            services.AddScoped<CategoryBLL>();
-            services.AddScoped<CustomerBLL>();
             services.AddSingleton<AppSettings>();
             //services.AddAutoMapper(typeof(Startup));
 
@@ -94,6 +87,9 @@ namespace ShoppingWebAPI
             services.AddScoped<IDeliveryOptionsRepository, DeliveryOptionsRepository>();
             services.AddScoped<IOrderBLL, OrderBLL>();
             services.AddScoped<IDeliveryBLL, DeliveryBLL>();
+            services.AddScoped<ICustomerBLL, CustomerBLL>();
+            services.AddScoped<ICategoryBLL, CategoryBLL>();
+            services.AddScoped<IProductBLL, ProductBLL>();
 
             // Email settings
             var mailSetting = _configuration.GetSection("MailSettings");

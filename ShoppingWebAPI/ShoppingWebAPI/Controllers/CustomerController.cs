@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Linq;
+using System.Security.Cryptography;
 using BusinessLogicLayer;
+using BusinessLogicLayer.IServices;
 using BusinessLogicLayer.Models;
+using DataAccessLayer.Entities;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -14,10 +18,10 @@ namespace ShoppingWebAPI.Controllers
     [Route("api/users")]
     public class CustomerController : ControllerBase
     {
-        private readonly CustomerBLL _customerBLL;
+        private readonly ICustomerBLL _customerBLL;
         private readonly ILogger _logger;
 
-        public CustomerController(CustomerBLL customerBLL, ILogger<CustomerController> logger)
+        public CustomerController(ICustomerBLL customerBLL, ILogger<CustomerController> logger)
         {
             _customerBLL = customerBLL;
             _logger = logger;
@@ -36,7 +40,10 @@ namespace ShoppingWebAPI.Controllers
                 return BadRequest(new { message = "Email address already in use" });
             }
 
+            SetRefreshTokenInCookie(createdCustomer.RefreshToken);
+
             _logger.LogWarning("new customer created");
+
             return Ok(new { message = "Registered Successfully !", user = createdCustomer });
         }
 
@@ -44,8 +51,6 @@ namespace ShoppingWebAPI.Controllers
         public IActionResult GetUser(int id)
         {
             _logger.LogInformation("user information requested");
-
-            //var token = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
 
             var customer = _customerBLL.GetCustomer(id);
             if(customer == null)
@@ -71,8 +76,36 @@ namespace ShoppingWebAPI.Controllers
                 return Unauthorized("Incorrect email / password !");
             }
 
+            SetRefreshTokenInCookie(customer.RefreshToken);
+
             _logger.LogInformation("user logged in $ returned user details");
             return Ok(customer);
+        }
+
+        [AllowAnonymous]
+        [HttpGet("refreshToken")]
+        public ActionResult RefreshJWTtoken()
+        {
+            var refreshToken = Request.Cookies["refreshToken"];
+            var customerDto = _customerBLL.RefreshExpiredJWTtoken(refreshToken);
+            if (!string.IsNullOrEmpty(customerDto.RefreshToken))
+            {
+                SetRefreshTokenInCookie(customerDto.RefreshToken);
+            }
+            return Ok(customerDto);
+        }
+
+
+        private void SetRefreshTokenInCookie(string refreshToken)
+        {
+            var cookieOptions = new CookieOptions
+            {
+                HttpOnly = true,
+                Expires = DateTime.UtcNow.AddDays(10),
+                SameSite = SameSiteMode.None,
+                Secure = true
+            };
+            Response.Cookies.Append("refreshToken", refreshToken, cookieOptions);
         }
 
     }

@@ -23,28 +23,7 @@ namespace BusinessLogicLayer
         }
 
         public OrderDto AddNewOrder(OrderCreationDto orderCreationDto)
-        {
-            //var orderDetails = new Order()
-            //{
-            //    CustomerId = orderCreationDto.CustomerId,
-            //    Email = orderCreationDto.Email,
-            //    OrderDate = DateTime.Now,
-            //    Invoice = _orderMapper.Map<Invoice>(orderCreationDto.Invoice),
-            //    Shipping = _orderMapper.Map<Shipping>(orderCreationDto.Shipping),
-            //    OrderItems = _orderMapper.Map<ICollection<OrderItems>>(orderCreationDto.OrderItems),
-            //    //Shipping = {
-            //    //    FirstName = orderCreationDto.Shipping.FirstName,
-            //    //    LastName = orderCreationDto.Shipping.LastName,
-            //    //    PhoneNum = orderCreationDto.Shipping.PhoneNum,
-            //    //    Address = orderCreationDto.Shipping.Address,
-            //    //    PostalCode = orderCreationDto.Shipping.PostalCode,
-            //    //    Status = orderCreationDto.Shipping.Status,
-            //    //    ExpectedDeliveryDate = orderCreationDto.Shipping.ExpectedDeliveryDate,
-            //    //    ShippingDate = new DateTime(),
-            //    //    DeliveryDate = new DateTime(),
-            //    //}
-            //};
-
+        {       
             var orderDetails = _orderMapper.Map<Order>(orderCreationDto);
 
             var createdOrder = _orderRepository.AddOrder(orderDetails);
@@ -70,18 +49,7 @@ namespace BusinessLogicLayer
             {
                 return null;
             }
-
-
-            //ICollection<OrderItemsDto> newOrderItems = new List<OrderItemsDto>();
-
-            //foreach (var orderItem in orderEntity.OrderItems)
-            //{
-            //    var product = _orderMapper.Map<OrderItemsDto>(_productRepository.GetSingleProduct(orderItem.ProductId));
-            //    product.Quantity = orderItem.Quantity;
-            //    product.Size = orderItem.Size;
-            //    newOrderItems.Add(product);
-            //}
-
+    
             var orderDto = new OrderDto()
             {
                 Id = orderEntity.Id,
@@ -104,15 +72,7 @@ namespace BusinessLogicLayer
             }
 
             var orders = _orderRepository.GetAllOrders(customerId);
-
-            //ICollection<OrderDto> allOrders = new List<OrderDto>();
-
-            //foreach (var order in orders)
-            //{
-            //    var orderDto = GetSingleOrder(order.Id, userIdFromToken);
-            //    allOrders.Add(orderDto);
-            //}
-
+          
             var result = _orderMapper.Map<ICollection<OrderDto>>(orders);
 
             return result;

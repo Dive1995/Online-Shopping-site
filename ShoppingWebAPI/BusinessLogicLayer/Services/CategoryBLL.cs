@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using BusinessLogicLayer.IServices;
 using DataAccessLayer.Entities;
 using DataAccessLayer.Models;
 
 namespace BusinessLogicLayer
 {
-    public class CategoryBLL
+    public class CategoryBLL : ICategoryBLL
     {
         private readonly ICategoryRepository _categoryRepository;
 

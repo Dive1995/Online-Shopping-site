@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using AutoMapper;
+using BusinessLogicLayer.IServices;
 using BusinessLogicLayer.Models;
 using BusinessLogicLayer.Models.Dtos;
 using DataAccessLayer.Entities;
@@ -9,7 +10,7 @@ using Microsoft.Extensions.Logging;
 
 namespace BusinessLogicLayer
 {
-    public class ProductBLL
+    public class ProductBLL : IProductBLL
     {
         private readonly IProductRepository _productRepository;
         private readonly ICategoryRepository _categoryRepository;
@@ -46,7 +47,6 @@ namespace BusinessLogicLayer
         // Get a single product
         public ProductDto GetProduct(int id)
         {
-
             var product = _productRepository.GetSingleProduct(id);
             return _productMapper.Map<ProductDto>(product);
         }

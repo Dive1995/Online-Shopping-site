@@ -22,8 +22,6 @@ namespace BusinessLogicLayer.Profile
             CreateMap<OrderItems, OrderItemsDto>().ReverseMap();
             CreateMap<Invoice, InvoiceDto>().ReverseMap();
             CreateMap<Product, OrderItemsDto>().ReverseMap();
-            //CreateMap<Product, ProductInvoiceDto>().ReverseMap();       // rather than converting Product -> ProductInvoiceDto then
-            //CreateMap<OrderItemsDto, ProductInvoiceDto>().ReverseMap(); // ProductInvoceDto -> OrderItemsDto make it as one step (remove ProductInvoiceDto)
             CreateMap<Product, ProductDto>().ReverseMap();
             CreateMap<Product, ProductCreationDto>().ReverseMap();
         }

@@ -17,6 +17,7 @@
     <None Remove="Template\" />
     <None Remove="Profile\" />
     <None Remove="IServices\" />
+    <None Remove="Microsoft.AspNetCore.Http.Features" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

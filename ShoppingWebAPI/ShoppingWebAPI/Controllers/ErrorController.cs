@@ -1,10 +1,8 @@
 ﻿using System.Net;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ShoppingWebAPI.Controllers
 {
@@ -25,6 +23,7 @@ namespace ShoppingWebAPI.Controllers
             var statusCode = exception.Error.GetType().Name switch
             {
                 "ArgumentException" => HttpStatusCode.BadRequest,
+                "NullReferenceException" => HttpStatusCode.BadRequest,
                 _ => HttpStatusCode.ServiceUnavailable
             };
 

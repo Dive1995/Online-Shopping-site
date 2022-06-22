@@ -1,5 +1,6 @@
 ﻿using System;
 using BusinessLogicLayer;
+using BusinessLogicLayer.IServices;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ShoppingWebAPI.Controllers
@@ -8,9 +9,9 @@ namespace ShoppingWebAPI.Controllers
     [Route("/api/category")]
     public class CategoryController : ControllerBase
     {
-        private readonly CategoryBLL _categoryBLL;
+        private readonly ICategoryBLL _categoryBLL;
 
-        public CategoryController(CategoryBLL categoryBLL)
+        public CategoryController(ICategoryBLL categoryBLL)
         {
             _categoryBLL = categoryBLL;
         }

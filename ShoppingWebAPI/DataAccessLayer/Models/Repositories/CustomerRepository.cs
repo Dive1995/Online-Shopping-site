@@ -30,5 +30,17 @@ namespace DataAccessLayer.Models
             _context.SaveChanges();
             return customer;
         }
+
+        public void AddRefreshToken(Customer customer, RefreshToken refreshToken)
+        {
+            customer.RefreshTokens.Add(refreshToken);
+            _context.Update(customer);
+            _context.SaveChanges();
+        }
+
+        public Customer GetCustomerByRefreshToken(string refreshToken)
+        {
+            return _context.Customers.SingleOrDefault(c => c.RefreshTokens.Any(t => t.Token == refreshToken));
+        }
     }
 }

@@ -21,12 +21,6 @@ namespace ShoppingWebAPI.Controllers
             _orderBLL = orderBLL;
         }
 
-        [AllowAnonymous]
-        [HttpGet]
-        public IActionResult Order()
-        {
-            return Ok("Orders");
-        }
 
         [HttpGet("{id}")]
         public ActionResult<OrderDto> GetSingleOrder(int id)
@@ -34,7 +28,6 @@ namespace ShoppingWebAPI.Controllers
             string name = User.Identity.Name;
             var userId = Int32.Parse(User.Identity.Name);
             
-
             OrderDto order = _orderBLL.GetSingleOrder(id, userId);
 
             if (order == null)
@@ -43,6 +36,7 @@ namespace ShoppingWebAPI.Controllers
             }
             return Ok(order);
         }
+
 
         [HttpPost]
         public ActionResult<OrderDto> AddNewOrder([FromBody] OrderCreationDto orderCreationDto)
@@ -54,9 +48,9 @@ namespace ShoppingWebAPI.Controllers
                 return StatusCode(500, new { message = "Couldn't add your order at the moment, please try again later." });
             }
 
-            //return StatusCode(201, "Order Successfully added.");
             return CreatedAtAction("GetSingleOrder", new { id = addedOrder.Id }, new { message = "Your order has been placed successfully.", order = addedOrder });
         }
+
 
         [HttpGet("user/{id}")]
         public ActionResult<ICollection<OrderDto>> GetAllOrders(int id)

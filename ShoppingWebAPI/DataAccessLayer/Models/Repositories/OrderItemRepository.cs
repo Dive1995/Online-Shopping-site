@@ -22,8 +22,6 @@ namespace DataAccessLayer.Models
             var order = _orderRepository.GetSingleOrder(orderId);
             foreach (var orderItem in orderItems)
             {
-                //orderItem.OrderId = orderId;
-                //_context.OrderItems.Add(orderItem);
                 order.OrderItems.Add(orderItem);
             }
 

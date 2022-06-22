@@ -40,9 +40,7 @@ namespace DataAccessLayer.Models
                     Price = product.Price,
                     Description = product.Description,
                     CategoryId = product.CategoryId,
-                    ProductStock = product.ProductStock,
-                    //CategoryName = category.Name,
-                    //Section = category.Section
+                    ProductStock = product.ProductStock
                 }).ToList();
         }
 
